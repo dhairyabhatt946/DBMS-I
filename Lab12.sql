@@ -189,4 +189,11 @@ update Person
 set Salary = Salary + 0.1*Salary
 where DepartmentID in (select DepartmentID from Dept where DepartmentName = 'Computer');
 
+update Person
+set Salary = salary + 0.1*salary
+from Person
+inner join dept
+on person.DepartmentID = dept.DepartmentID
+where dept.DepartmentName = 'computer';
+
 select * from Person;
