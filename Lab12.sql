@@ -43,7 +43,7 @@ select * from Person;
 --From the above given table perform the following queries:
 
 
---Part – A:
+--Part â€“ A:
 
 
 --1. Find all persons with their department name & code.
@@ -73,7 +73,7 @@ join dept
 on person.DepartmentID = dept.DepartmentID
 where person.City <> 'Rajkot';
 
---5. Retrieve person’s name of the person who joined the Civil department after 1-Aug-2001.
+--5. Retrieve personâ€™s name of the person who joined the Civil department after 1-Aug-2001.
 select person.PersonName, dept.DepartmentName, person.JoiningDate
 from person
 join Dept
@@ -132,7 +132,7 @@ join Dept
 on person.DepartmentID = dept.DepartmentID;
 
 
---Part – B:
+--Part â€“ B:
 
 
 --1. Produce Output Like: <PersonName> earns <Salary> from <DepartmentName> department monthly. (In 
@@ -165,7 +165,7 @@ group by dept.DepartmentName
 having sum(person.salary) > 100000;
 
 
---Part – C:
+--Part â€“ C:
 
 
 --1. List all departments who have no person.
@@ -184,9 +184,9 @@ on person.DepartmentID = dept.DepartmentID
 group by dept.DepartmentName
 having count(person.personId) > 2;
 
---3. Give a 10% increment in the computer department employee’s salary. (Use Update)
+--3. Give a 10% increment in the computer department employeeâ€™s salary. (Use Update)
 update Person
 set Salary = Salary + 0.1*Salary
-where DepartmentID in (select person.DepartmentID from Person join Dept on person.DepartmentID = dept.DepartmentID where dept.DepartmentName = 'Computer');
+where DepartmentID in (select DepartmentID from Dept where DepartmentName = 'Computer');
 
 select * from Person;
